@@ -47,24 +47,33 @@
         </div>
       </div>
       <div class="form sign-up">
-        <h2>Sign Up</h2>
-        <label>
+              <h2>Sign Up</h2>
+        <form action= "/signup/" method="post">
+            {%csrf_token%}
+          <label>
           <span>Name</span>
-          <input type="text">
+          <input type="text" name="username" >
         </label>
         <label>
           <span>Email</span>
-          <input type="email">
+          <input type="email" name="email">
         </label>
         <label>
           <span>Password</span>
-          <input type="password">
+          <input type="password" name="password1">
         </label>
         <label>
           <span>Confirm Password</span>
-          <input type="password">
+          <input type="password" name="password2">
         </label>
-        <button type="button" class="submit">Sign Up Now</button>
+        <button type="submit" class="submit">Sign Up Now</button>
+       </form>
+ <div>
+   {% for message in messages %}
+     <h3 align="center">  {{message}} </h3>
+ {% endfor %}
+ </div>
+
         <div class="social-media" style="margin-top:-33px">
           <ul>
             <a href="#" <li> <img src="{% static 'images/facebook.png' %}"></li></a>
